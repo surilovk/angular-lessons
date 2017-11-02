@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
     			width: 100%;
     			height: auto;
     			display: block;
+                
     		}
     `]             
 })
