@@ -1,26 +1,15 @@
-import { Component } from '@angular/core';
-     
-export class Item{
-    purchase: string;
-    done: boolean;
-    price: number;
-     
-    constructor(purchase: string, price: number) {
-  
-        this.purchase = purchase;
-        this.price = price;
-        this.done = false;
-    }
+function Item(purchase, price, done) {
+    this.purchase = purchase;
+    this.price = price;
+    this.done = done;
 }
  
-@Component({
-    selector: 'purchase-app',
-    template: `<div class="page-header">
-        <h1> хер вам </h1>
+var AppComponent = ng.core.Component({
+    selector: 'my-app',
+    template:  `<div class="page-header">
+        <h1> Список покупок </h1>
     </div>
     <div class="panel">
-
-
         <div class="form-inline">
             <div class="form-group">
                 <div class="col-md-8">
@@ -48,31 +37,30 @@ export class Item{
             </thead>
             <tbody>
                 <tr *ngFor="let item of items">
-                    <td class="red">{{item.purchase}}</td>
+                    <td>{{item.purchase}}</td>
                     <td>{{item.price}}</td>
                     <td><input type="checkbox" [(ngModel)]="item.done" /></td>
                 </tr>
             </tbody>
         </table>
     </div>`
-})
-export class AppComponent { 
-    items: Item[] = 
-    [
-        { purchase: "Хлеб", done: false, price: 15.9 },
-        { purchase: "Масло", done: false, price: 60 },
-        { purchase: "Картофель", done: true, price: 22.6 },
-        { purchase: "Сыр", done: false, price:310 }
-    ];
-    addItem(text: string, price: number): void {
-         
-        if(text==null || text==undefined || text.trim()=="")
+    })
+  .Class({
+    constructor: function() { 
+     
+        this.items= [
+            new Item("Хлеб",15.9),
+            new Item("Масло",60),
+            new Item("Картофель",22.6, true),
+            new Item("Сыр",310)
+        ];
+    }
+});
+ 
+AppComponent.prototype.addItem = function (text, price) {
+        if (text == null || text == undefined || text.trim() == "")
             return;
-        if(price==null || price==undefined)
+        if (price == null || price == undefined)
             return;
         this.items.push(new Item(text, price));
-    }
-    if(done == true){
-       document.getElementById('red').style.color = 'red';
-    };
-}
+};
