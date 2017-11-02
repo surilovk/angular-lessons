@@ -1,0 +1,9 @@
+h1 {color: red;text-transform: uppercase;}
+:host {
+/*Селектор :host ссылается на элемент, в котором хостится компонент. То есть в данном случае это элемент <my-app></my-app>*/
+	background: #ccc;
+    width: 100%;
+    height: auto;
+    display: block;
+
+}
