@@ -1,5 +1,7 @@
 <label>Введите имя:</label>
 <input [(ngModel)]="name" placeholder="name">
 <input [(ngModel)]="age" placeholder="age">
+<input type="text" [value]="name">
+
 <h1>Добро пожаловать {{name}} {{age}} лет!</h1>
 <p>Компонент выведен в отдельный файл</p>
