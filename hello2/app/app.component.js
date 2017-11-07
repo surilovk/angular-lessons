@@ -9,9 +9,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.name = '';
+        this.name = 'Кирилл';
         this.age = '';
+        this.count = 0;
     }
+    AppComponent.prototype.increase = function () {
+        this.count++;
+        console.log($event);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
